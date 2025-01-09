@@ -11,7 +11,7 @@ const Home = () => {
     setResponse(''); // Clear previous response
     
     try {
-      const res = await fetch('http://127.0.0.1:5000/chat', {
+      const res = await fetch('https://bents-sample-stream-qz7g.vercel.app/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

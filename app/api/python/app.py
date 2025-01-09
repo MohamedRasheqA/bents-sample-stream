@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, stream_with_context
+from flask import Flask, request, Response, stream_with_context, render_template
 from flask_cors import CORS
 from openai import OpenAI
 import os
@@ -10,7 +10,11 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app, resources={r"/chat": {"origins": "*"}})
-
+# Flask routes
+@app.route('/')
+@app.route('/database')
+def serve_spa():
+    return render_template('index.html')
 # Initialize OpenAI client
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
